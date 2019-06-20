@@ -103,6 +103,7 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
             if (rs.next()) {
                 alu = new Alumno();
                 setAlumnoProperties(alu, rs);
+                System.out.println(alu);
             }
             
             return alu;

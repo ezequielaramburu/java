@@ -123,8 +123,7 @@ public final class Alumno extends Persona {
                 String.format("%5.2f", promedio); 
     }
 
-    public static Alumno string2Alumno(String[] campos) 
-            throws PersonaException, MiCalendarioException {
+    public static Alumno string2Alumno(String[] campos) throws PersonaException, MiCalendarioException {
         Alumno alumno = new Alumno();
         int indice=0;
         alumno.setDni(Integer.valueOf(campos[indice++]));

@@ -27,7 +27,7 @@ public class TestSingleton {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PersonaException {
         DAOAlumnoFactory factory = 
                 DAOAlumnoFactory.getInstance();
         
@@ -46,22 +46,22 @@ public class TestSingleton {
             return;
         }
         
-        Alumno alu;
+        Alumno alu = new Alumno();
         try {
-            alu = new Alumno(14,"tecnica",new MiCalendario(26, 10, 2007),52, 8.33,23729256, "reha", "carlos",new MiCalendario(23, 12, 1990),'m');
+            alu = new Alumno(14,"tecnica",new MiCalendario(26, 10, 2008),52, 8.33,23729256, "SOLER", "carlos",new MiCalendario(23, 12, 1910),'m');
             //alu = new Alumno(9,"Abogacia",new MiCalendario(6, 12, 2010),41, 6.1,36521256, "Perez", "Jimena",new MiCalendario(23, 12, 1989),'F');
             //alu = new Alumno(10,"tecnica",new MiCalendario(26, 1, 2014),22, 8, 30521256, "reha", "carlos",new MiCalendario(10, 12, 1989),'M');
         } catch (PersonaException | MiCalendarioException ex) {
             Logger.getLogger(TestSingleton.class.getName()).log(Level.SEVERE, null, ex);
-            return;
+        
         }
         try {
             //dao.create(alu);
-            //dao.exist(36524125);
+            //dao.exist(2372956);
+            //dao.read(2372256);
             //dao.update(alu);
-            //dao.delete(36524125);
-            //System.out.println("Alumno: "+ dao.read(36524125));
-            List<Alumno> lista = dao.findAll();
+            //dao.delete(23729256);
+             List<Alumno> lista = dao.findAll();
             lista.forEach((alumno) -> {
                 System.out.println(alumno);
             });
