@@ -96,7 +96,6 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
             if (rs.next()) {
                 alu = new Alumno();
                 setAlumnoProperties(alu, rs);
-                
             }
             
             return alu;
@@ -156,18 +155,22 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
     public List<Alumno> findAll() throws DAOException {
         
         List<Alumno> listaAlumnos = new ArrayList<>();
-        try {
-            ResultSet rs = null;
+        ResultSet rs;
+        try {            
             rs = prepareStatementFindAll.executeQuery();
             while (rs.next())
             {
             Alumno alu= new Alumno();
-            alu.setDni(rs.getInt(1));
-            alu.setApellido(rs.getString(2));
-            alu.setNombre(rs.getString(3));
-            alu.setFechaNac(MiCalendario.convert2MiCalendario(rs.getDate(4)));
-            alu.setPromedio(rs.getDouble(5));
-            alu.setCantMatAprob(rs.getInt(6));
+            alu.setDni(rs.getInt("dni"));
+            alu.setApellido(rs.getString("apellido"));
+            alu.setNombre(rs.getString("nombre"));
+            alu.setFechaNac(MiCalendario.convert2MiCalendario(rs.getDate("FECHA_NAC")));
+            alu.setPromedio(rs.getDouble("promedio"));
+            alu.setCantMatAprob(rs.getInt("CANT_MAT_APROB"));
+            alu.setSexo((rs.getString("sexo").charAt(0)));
+            alu.setLegajo(rs.getInt("legajo"));
+            alu.setCarrera(rs.getString("carrera"));
+            alu.setFechaIng(MiCalendario.convert2MiCalendario(rs.getDate("fecha_ing")));
             listaAlumnos.add(alu);
                     
             }

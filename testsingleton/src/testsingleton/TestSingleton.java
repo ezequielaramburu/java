@@ -55,21 +55,15 @@ public class TestSingleton {
         }
         try {
             //dao.create(alu);
-            dao.exist(36524125);
+            //dao.exist(36524125);
             //dao.update(alu);
-            System.out.println("Alumno: "+ dao.read(36524125));
-            //dao.delete(12345674);
-           
-          /*  List<Alumno> lista = dao.findAll();
+            //dao.delete(36524125);
+            //System.out.println("Alumno: "+ dao.read(36524125));
+            List<Alumno> lista = dao.findAll();
             lista.forEach((alumno) -> {
                 System.out.println(alumno);
-            }); //dao.update(alu);
-            /*
-            List<Alumno> lista = dao.findAll();
-            for (Alumno alumno : lista) {
-            System.out.println(alumno); 
-            }
-             */
+            });
+            
         } catch (DAOException ex) {
             Logger.getLogger(TestSingleton.class.getName()).log(Level.SEVERE, null, ex);
         }
