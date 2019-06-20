@@ -48,7 +48,7 @@ public class TestSingleton {
         
         Alumno alu;
         try {
-            alu = new Alumno(6,"tecnica",new MiCalendario(26, 10, 1990),52, 8.33,36524125, "reha", "carlos",new MiCalendario(23, 12, 1989),'M');
+            alu = new Alumno(8,"tecnica",new MiCalendario(26, 10, 1988),52, 8.33,3652126, "reha", "carlos",new MiCalendario(23, 12, 1989),'M');
         } catch (PersonaException | MiCalendarioException ex) {
             Logger.getLogger(TestSingleton.class.getName()).log(Level.SEVERE, null, ex);
             return;

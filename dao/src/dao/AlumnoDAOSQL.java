@@ -230,6 +230,7 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
     @Override
     public void close() throws DAOException {
         try {
+            System.out.println("Conexion cerrada con exito");
             conn.close();
         } catch (SQLException ex) {
             throw new DAOException("No se pudo cerrar la conexión ==>"+ex.getMessage());

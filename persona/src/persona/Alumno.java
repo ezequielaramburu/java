@@ -114,9 +114,10 @@ public class Alumno extends Persona {
         int indice=0;
         alumno.setDni(Integer.valueOf(campos[indice++]));
         alumno.setApellido(campos[indice++]);
+        alumno.setNombre(campos[indice++]);
         alumno.setLegajo(Integer.valueOf(campos[indice++]));
         alumno.setCarrera(campos[indice++]);
-        
+               
         String fechaIng[] = campos[indice++].split("/");
         int dia = Integer.valueOf(fechaIng[0]);
         int mes = Integer.valueOf(fechaIng[1]);
