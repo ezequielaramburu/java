@@ -28,9 +28,10 @@ public abstract class Persona {
     public Persona(Integer dni) throws PersonaException {
         setDni(dni);
     }
+    
+    //Agrego validaciones al contructor
 
-    public Persona(Integer dni, String apellido, String nombre, 
-            MiCalendario fechaNac, char sexo) throws PersonaException {
+    public Persona(Integer dni, String apellido, String nombre,MiCalendario fechaNac, char sexo) throws PersonaException {
         setDni(dni);
         setApellido(apellido);
         this.nombre = nombre;

@@ -7,9 +7,9 @@ package persona;
 
 /**
  *
- * @author Gabriel
+ * @author Ezequiel
  */
-public class Alumno extends Persona {
+public final class Alumno extends Persona {
 
     // No usar!!!
     private int legajo;
@@ -32,7 +32,7 @@ public class Alumno extends Persona {
         setCantMatAprob(cantMatAprob);
         setPromedio(promedio);
     }
-
+    // Agrego validaciones en el constructor
     public Alumno(int legajo, String carrera, MiCalendario fechaIng, Integer cantMatAprob, Double promedio, Integer dni, String apellido, String nombre, MiCalendario fechaNac, char sexo) throws PersonaException {
         super(dni, apellido, nombre, fechaNac, sexo);
         this.legajo = legajo;
@@ -82,8 +82,9 @@ public class Alumno extends Persona {
 
     public void setCantMatAprob(Integer cantMatAprob) throws AlumnoException {
         
-        if (cantMatAprob == null || cantMatAprob<0 || cantMatAprob>10) {
+        if (cantMatAprob == null || cantMatAprob<0 ) {
             throw new AlumnoException("Error con la cantidad de materias aprobadas");
+        } else {
         }
         this.cantMatAprob = cantMatAprob;
     }

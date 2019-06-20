@@ -66,15 +66,7 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
 
     @Override
     public void create(Alumno alu) throws DAOException {
-        if(alu.getFechaIng().esMenorQue(alu.getFechaNac()))
-            {
-            try {
-                throw new AlumnoException("La fecha de Ingreso debe ser mayor a la de nacimiento");
-            } catch (AlumnoException ex) {
-                Logger.getLogger(AlumnoDAOSQL.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else{
+       
         try {
             int index = 1;
                     
@@ -91,14 +83,14 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
             prepareStatementInsert.executeUpdate();
             System.out.println("Alumno agregado con exito");
         } catch (SQLException ex) {
-            if (ex.getErrorCode() == 1062){
+            if (ex.getErrorCode() == 1062){ //Capturo el error que manda MySQL por los duplicados
             throw new DAOException("El numero de DNI o el numero de legajo ya Existen en la base de datos =="+ex.getMessage());
             }
             else
             {
             throw new DAOException("No se pudo agregar alumno =="+ex.getMessage());}
         }
-    }}
+    }
 
     @Override
     public Alumno read(Integer dni) throws DAOException {
