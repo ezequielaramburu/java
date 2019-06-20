@@ -21,7 +21,7 @@ import persona.PersonaException;
 
 /**
  *
- * @author Gabriel
+ * @author Ezequiel
  */
 public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
 
