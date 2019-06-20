@@ -25,20 +25,20 @@ public class Alumno extends Persona {
     public Alumno() {
     }
 
-    public Alumno(int legajo, String carrera, MiCalendario fechaIng, Integer cantMatAprob, Double promedio) {
+    public Alumno(int legajo, String carrera, MiCalendario fechaIng, Integer cantMatAprob, Double promedio) throws AlumnoException {
         this.legajo = legajo;
         this.carrera = carrera;
-        this.fechaIng = fechaIng;
-        this.cantMatAprob = cantMatAprob;
-        this.promedio = promedio;
+        setFechaIng(fechaIng);
+        setCantMatAprob(cantMatAprob);
+        setPromedio(promedio);
     }
 
     public Alumno(int legajo, String carrera, MiCalendario fechaIng, Integer cantMatAprob, Double promedio, Integer dni, String apellido, String nombre, MiCalendario fechaNac, char sexo) throws PersonaException {
         super(dni, apellido, nombre, fechaNac, sexo);
         this.legajo = legajo;
         this.carrera = carrera;
-        this.fechaIng = fechaIng;
-        this.cantMatAprob = cantMatAprob;
+        setFechaIng(fechaIng);
+        setCantMatAprob(cantMatAprob);
         setPromedio(promedio);
     }
 
@@ -62,6 +62,11 @@ public class Alumno extends Persona {
         return fechaIng;
     }
 
+    /**
+     *
+     * @param fechaIng
+     * @throws AlumnoException
+     */
     public void setFechaIng(MiCalendario fechaIng) 
             throws AlumnoException {
         if (fechaIng.esMenorQue(this.getFechaNac())) {
@@ -75,7 +80,11 @@ public class Alumno extends Persona {
         return cantMatAprob;
     }
 
-    public void setCantMatAprob(Integer cantMatAprob) {
+    public void setCantMatAprob(Integer cantMatAprob) throws AlumnoException {
+        
+        if (cantMatAprob == null || cantMatAprob<0 || cantMatAprob>10) {
+            throw new AlumnoException("Error con la cantidad de materias aprobadas");
+        }
         this.cantMatAprob = cantMatAprob;
     }
 
@@ -83,6 +92,11 @@ public class Alumno extends Persona {
         return promedio;
     }
 
+    /**
+     *
+     * @param promedio
+     * @throws AlumnoException
+     */
     public void setPromedio(Double promedio) throws AlumnoException{
         if (promedio == null || promedio<0 || promedio>10) {
             throw new AlumnoException("El promedio es inválido");

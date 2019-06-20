@@ -35,7 +35,7 @@ public abstract class Persona {
         setApellido(apellido);
         this.nombre = nombre;
         this.fechaNac = fechaNac;
-        this.sexo = sexo;
+        setSexo(sexo);
     }
 
     
@@ -87,10 +87,10 @@ public abstract class Persona {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public final void setSexo(char sexo) throws AlumnoException {
         sexo = Character.toUpperCase(sexo);
-        if (sexo!='F' && sexo!='M') {
-            // TODO Exception
+        if (sexo!='F' && sexo!='M' ) {
+            throw new AlumnoException("Los unicos valores validos para sexo son M o F");
         }
         this.sexo = sexo;
     }
