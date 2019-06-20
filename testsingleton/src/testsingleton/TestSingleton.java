@@ -61,9 +61,9 @@ public class TestSingleton {
             //dao.read(2372256);
             //dao.update(alu);
             //dao.delete(23729256);
-             List<Alumno> lista = dao.findAll();
+            List<Alumno> lista = dao.findAll();
             lista.forEach((alumno) -> {
-                System.out.println(alumno);
+            System.out.println(alumno);
             });
             
         } catch (DAOException ex) {

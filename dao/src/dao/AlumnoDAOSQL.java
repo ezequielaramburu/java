@@ -169,16 +169,7 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
             while (rs.next())
             {
             Alumno alu= new Alumno();
-            alu.setDni(rs.getInt("dni"));
-            alu.setApellido(rs.getString("apellido"));
-            alu.setNombre(rs.getString("nombre"));
-            alu.setFechaNac(MiCalendario.convert2MiCalendario(rs.getDate("FECHA_NAC")));
-            alu.setPromedio(rs.getDouble("promedio"));
-            alu.setCantMatAprob(rs.getInt("CANT_MAT_APROB"));
-            alu.setSexo((rs.getString("sexo").charAt(0)));
-            alu.setLegajo(rs.getInt("legajo"));
-            alu.setCarrera(rs.getString("carrera"));
-            alu.setFechaIng(MiCalendario.convert2MiCalendario(rs.getDate("fecha_ing")));
+            setAlumnoProperties(alu, rs);
             listaAlumnos.add(alu);
                     
             }
