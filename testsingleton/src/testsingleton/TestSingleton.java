@@ -48,21 +48,21 @@ public class TestSingleton {
         
         Alumno alu;
         try {
-            alu = new Alumno(8,"tecnica",new MiCalendario(26, 10, 1988),52, 8.33,3652126, "reha", "carlos",new MiCalendario(23, 12, 1989),'M');
+            alu = new Alumno(8,"tecnica",new MiCalendario(26, 10, 1988),52, 8.33,36521256, "reha", "carlos",new MiCalendario(23, 12, 1989),'M');
         } catch (PersonaException | MiCalendarioException ex) {
             Logger.getLogger(TestSingleton.class.getName()).log(Level.SEVERE, null, ex);
             return;
         }
         try {
-            //dao.create(alu);
+            dao.create(alu);
             //dao.exist(36524125);
             //dao.update(alu);
             //dao.delete(36524125);
             //System.out.println("Alumno: "+ dao.read(36524125));
-            List<Alumno> lista = dao.findAll();
+           /* List<Alumno> lista = dao.findAll();
             lista.forEach((alumno) -> {
                 System.out.println(alumno);
-            });
+            });*/
             
         } catch (DAOException ex) {
             Logger.getLogger(TestSingleton.class.getName()).log(Level.SEVERE, null, ex);

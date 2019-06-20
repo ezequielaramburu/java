@@ -81,7 +81,12 @@ public class AlumnoDAOSQL extends DAO<Alumno, Integer>{
             prepareStatementInsert.executeUpdate();
             System.out.println("Alumno agregado con exito");
         } catch (SQLException ex) {
-            throw new DAOException("No se pudo agregar alumno"+ex.getMessage());
+            if (ex.getErrorCode() == 1062){
+            throw new DAOException("El numero de DNI o el numero de legajo ya Existen en la base de datos"+ex.getMessage());
+            }
+            else
+            {
+            throw new DAOException("No se pudo agregar alumno"+ex.getMessage());}
         }
     }
 
